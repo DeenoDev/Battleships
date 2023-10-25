@@ -3,6 +3,7 @@ const flipButton = document.querySelector('#flip-button');
 
 function flip(){
     const optionShips = (Array.from (optionContainer.children));
+    optionShips.forEach(optionShip => optionShip.style.transform = 'rotate(90deg)');
 }
 
 
