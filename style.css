@@ -2,6 +2,8 @@
     width: 500px;
     height: 50px;
     background: yellow;
+    display: flex;
+    align-items: center;
 }
 
 .destroyer{
