@@ -8,8 +8,18 @@
     background-color: brown;
 }
 
+.submarine{
+    background-color: green;
+}
+
 .destroyer-preview{
     width: 20px;
+    height: 10px;
+    margin: 3px;
+}
+
+.submarine-preview{
+    width: 30px;
     height: 10px;
     margin: 3px;
 }
