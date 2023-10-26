@@ -1,3 +1,4 @@
+const gamesBoardContainer = document.querySelector('#gamesboard-container');
 const optionContainer = document.querySelector('.option-container');
 const flipButton = document.querySelector('#flip-button');
 
@@ -19,6 +20,8 @@ function flip(){
 const width = 10;
 
 function createBoard(){
+   const gameBoardContainer = document.createElement('div');
+   gameBoardContainer.classList.add('game-board');
     
 }
 
