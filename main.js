@@ -22,8 +22,12 @@ const width = 10;
 function createBoard(){
    const gameBoardContainer = document.createElement('div');
    gameBoardContainer.classList.add('game-board');
+   gameBoardContainer.style.backgroundColor = 'pink';
+
+   gamesBoardContainer.append(gameBoardContainer);
     
 }
+createBoard();
 
 
 flipButton.addEventListener('click', flip);
