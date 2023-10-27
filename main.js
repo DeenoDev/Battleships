@@ -25,6 +25,12 @@ function createBoard(color, user){
    gameBoardContainer.style.backgroundColor = color;
    gameBoardContainer.id = user;
 
+   for (let i = 0; i < width * width; i++){
+    const block = document.createElement('div');
+    block.classList.add('block');
+
+   }
+
    gamesBoardContainer.append(gameBoardContainer);
     
 }
