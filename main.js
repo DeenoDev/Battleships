@@ -49,6 +49,7 @@ class Ship {
     }
 }
 
-new Ship
+const destroyer = new Ship('destroyer', 2);
+console.log(destroyer);
 
 
