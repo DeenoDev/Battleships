@@ -50,6 +50,10 @@ class Ship {
 }
 
 const destroyer = new Ship('destroyer', 2);
-console.log(destroyer);
+const submarine = new Ship('submarine', 3 );
+const cruiser = new Ship('cruiser', 3);
+const battleship = new Ship('battleship', 4);
+const carrier = new Ship('carrier', 5);
+
 
 
