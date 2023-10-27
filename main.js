@@ -50,10 +50,12 @@ class Ship {
 }
 
 const destroyer = new Ship('destroyer', 2);
-const submarine = new Ship('submarine', 3 );
+const submarine = new Ship('submarine', 3);
 const cruiser = new Ship('cruiser', 3);
 const battleship = new Ship('battleship', 4);
 const carrier = new Ship('carrier', 5);
+
+const ships = [destroyer, submarine, cruiser, battleship, carrier];
 
 
 
