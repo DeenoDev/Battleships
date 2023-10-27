@@ -15,6 +15,7 @@ function flip(){
     // angle = angle === 0 ? 90 : 0;
     optionShips.forEach(optionShip => optionShip.style.transform = `rotate(${angle}deg)`);
 }
+flipButton.addEventListener('click', flip);
 
 //Creating Boards
 const width = 10;
@@ -40,5 +41,14 @@ function createBoard(color, user){
 createBoard('yellow', 'player');
 createBoard('pink', 'computer');
 
+//Creating Ships
+class Ship {
+    constructor(name, length){
+        this.name = name;
+        this.length = length;
+    }
+}
 
-flipButton.addEventListener('click', flip);
+new Ship
+
+
