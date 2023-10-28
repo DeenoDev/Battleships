@@ -59,7 +59,7 @@ const ships = [destroyer, submarine, cruiser, battleship, carrier];
 
 function addShipPiece(){
    const allBoardBlocks = document.querySelectorAll('#computer div');
-   console.log(allBoardBlocks);
+   let randomStartIndex = Math.floor(Math.random() * width * width);
 }
 addShipPiece();
 
