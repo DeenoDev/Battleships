@@ -63,7 +63,10 @@ function addShipPiece(ship){
    let isHorizontal = randomBoolean;
    let randomStartIndex = Math.floor(Math.random() * width * width);
    
-   let validStart = isHorizontal ? randomStartIndex <= width * width - ship.length ? randomStartIndex : width * width -ship.length;
+   let validStart = isHorizontal ? randomStartIndex <= width * width - ship.length ? randomStartIndex : 
+   width * width - ship.length :
+   //handle verticle
+   randomStartIndex <= width * width - width * ship.length ? randomStartIndex : randomStartIndex - ship.length;
 
    let shipBlocks = [];
 
