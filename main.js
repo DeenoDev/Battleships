@@ -90,6 +90,8 @@ function addShipPiece(ship){
         )
     }
 
+    const notTaken = shipBlocks.every(shipBlock => !shipBlock.classList.contains('taken'));
+
     if (valid) {
         shipBlocks.forEach(shipBlock => {
             shipBlock.classList.add(ship.name);
