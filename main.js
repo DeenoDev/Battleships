@@ -56,6 +56,7 @@ const battleship = new Ship('battleship', 4);
 const carrier = new Ship('carrier', 5);
 
 const ships = [destroyer, submarine, cruiser, battleship, carrier];
+let notDropped;
 
 function addShipPiece(user, ship, startId){
    const allBoardBlocks = document.querySelectorAll(`#${user} div`);
@@ -100,7 +101,8 @@ function addShipPiece(user, ship, startId){
             shipBlock.classList.add('taken');
         })
     } else {
-        addShipPiece(ship);
+        if (user === 'computer') addShipPiece(ship);
+        if (user ==='player') notDropped = true;
     }
 }
 ships.forEach(ship => addShipPiece('computer', ship));
@@ -118,6 +120,7 @@ allPlayerBlocks.forEach(playerBlock => {
 })
 
 function dragStart(e){
+    notDropped = false; 
     draggedShip = e.target;
 
 };
@@ -130,6 +133,9 @@ function dropShip(e){
     const startId = e.target.id;
     const ship = ships[draggedShip.id];
     addShipPiece('player', ship, startId);
+    if(!notDropped){
+        draggedShip.remove();
+    }
 }
 
 
