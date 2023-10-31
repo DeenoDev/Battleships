@@ -58,9 +58,9 @@ const carrier = new Ship('carrier', 5);
 const ships = [destroyer, submarine, cruiser, battleship, carrier];
 
 function addShipPiece(user, ship, startId){
-   const allBoardBlocks = document.querySelectorAll('#computer div');
+   const allBoardBlocks = document.querySelectorAll(`#${user} div`);
    let randomBoolean = Math.random() < 0.5;
-   let isHorizontal = randomBoolean;
+   let isHorizontal = user === 'player' ? angle === 0 : randomBoolean;
    let randomStartIndex = Math.floor(Math.random() * width * width);
    
    let validStart = isHorizontal ? randomStartIndex <= width * width - ship.length ? randomStartIndex : 
