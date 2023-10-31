@@ -62,12 +62,14 @@ function addShipPiece(user, ship, startId){
    let randomBoolean = Math.random() < 0.5;
    let isHorizontal = user === 'player' ? angle === 0 : randomBoolean;
    let randomStartIndex = Math.floor(Math.random() * width * width);
+
+   let startIndex = startId ? startId : randomStartIndex;
    
-   let validStart = isHorizontal ? randomStartIndex <= width * width - ship.length ? randomStartIndex : 
+   let validStart = isHorizontal ? startIndex <= width * width - ship.length ? startIndex : 
    width * width - ship.length :
    //handle verticle
-   randomStartIndex <= width * width - width * ship.length ? randomStartIndex : 
-   randomStartIndex - ship.length * width + width;
+   startIndex <= width * width - width * ship.length ? startIndex : 
+   startIndex - ship.length * width + width;
 
    let shipBlocks = [];
 
