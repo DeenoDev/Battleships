@@ -125,7 +125,8 @@ function dragOver(e){
 }
 
 function dropShip(e){
-    e.target.id;
+    const startId = e.target.id;
+    const ship = ships[draggedShip.id];
 }
 
 
