@@ -108,6 +108,8 @@ let draggedShip;
 const optionShips = Array.from(optionContainer.children);
 optionShips.forEach(optionShip => optionShip.addEventListener('dragstart', dragStart));
 
+const allPlayerBlocks = document.querySelectorAll('#player div');
+
 function dragStart(e){
     draggedShip = e.target;
 
