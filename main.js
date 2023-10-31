@@ -57,7 +57,7 @@ const carrier = new Ship('carrier', 5);
 
 const ships = [destroyer, submarine, cruiser, battleship, carrier];
 
-function addShipPiece(ship){
+function addShipPiece(user, ship, startId){
    const allBoardBlocks = document.querySelectorAll('#computer div');
    let randomBoolean = Math.random() < 0.5;
    let isHorizontal = randomBoolean;
@@ -101,7 +101,7 @@ function addShipPiece(ship){
         addShipPiece(ship);
     }
 }
-ships.forEach(ship => addShipPiece(ship));
+ships.forEach(ship => addShipPiece('computer', ship));
 
 //Drag Player Ships
 let draggedShip;
@@ -127,6 +127,7 @@ function dragOver(e){
 function dropShip(e){
     const startId = e.target.id;
     const ship = ships[draggedShip.id];
+    addShipPiece('player', ship, startId);
 }
 
 
