@@ -58,7 +58,9 @@ const carrier = new Ship('carrier', 5);
 const ships = [destroyer, submarine, cruiser, battleship, carrier];
 let notDropped;
 
-function handleValidity(){
+//Checking Validity
+
+function handleValidity(allBoardBlocks, isHorizontal, startIndex, ship){
     let validStart = isHorizontal ? startIndex <= width * width - ship.length ? startIndex : 
     width * width - ship.length :
     //handle verticle
@@ -88,6 +90,8 @@ function handleValidity(){
  
      const notTaken = shipBlocks.every(shipBlock => !shipBlock.classList.contains('taken'));
 
+     return {shipBlocks, valid, notTaken};
+
 }
 
 //Adding Ship Pieces to Board
@@ -99,9 +103,9 @@ function addShipPiece(user, ship, startId){
    let randomStartIndex = Math.floor(Math.random() * width * width);
 
    let startIndex = startId ? startId : randomStartIndex;
-   
-  
 
+   handleValidity(allBoardBlocks, isHorizontal, startIndex, ship);
+   
     if (valid && notTaken) {
         shipBlocks.forEach(shipBlock => {
             shipBlock.classList.add(ship.name);
