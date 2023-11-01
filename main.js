@@ -58,6 +58,38 @@ const carrier = new Ship('carrier', 5);
 const ships = [destroyer, submarine, cruiser, battleship, carrier];
 let notDropped;
 
+function handleValidity(){
+    let validStart = isHorizontal ? startIndex <= width * width - ship.length ? startIndex : 
+    width * width - ship.length :
+    //handle verticle
+    startIndex <= width * width - width * ship.length ? startIndex : 
+    startIndex - ship.length * width + width;
+ 
+    let shipBlocks = [];
+ 
+    for (let i = 0; i < ship.length; i++){
+     if (isHorizontal){
+        shipBlocks.push(allBoardBlocks[Number(validStart) + i]); 
+       } else {
+         shipBlocks.push(allBoardBlocks[Number(validStart) + i * width]);
+       }
+     }
+ 
+     let valid;
+ 
+     if(isHorizontal){
+         shipBlocks.every((_shipBlock, index) => 
+             valid = shipBlocks[0].id % width !== width - (shipBlocks.length - (index + 1)))
+     } else {
+         shipBlocks.every((_shipBlock, index) => 
+           valid = shipBlocks[0].id < 90 + (width * index + 1)
+         )
+     }
+ 
+     const notTaken = shipBlocks.every(shipBlock => !shipBlock.classList.contains('taken'));
+
+}
+
 //Adding Ship Pieces to Board
 
 function addShipPiece(user, ship, startId){
@@ -68,34 +100,7 @@ function addShipPiece(user, ship, startId){
 
    let startIndex = startId ? startId : randomStartIndex;
    
-   let validStart = isHorizontal ? startIndex <= width * width - ship.length ? startIndex : 
-   width * width - ship.length :
-   //handle verticle
-   startIndex <= width * width - width * ship.length ? startIndex : 
-   startIndex - ship.length * width + width;
-
-   let shipBlocks = [];
-
-   for (let i = 0; i < ship.length; i++){
-    if (isHorizontal){
-       shipBlocks.push(allBoardBlocks[Number(validStart) + i]); 
-      } else {
-        shipBlocks.push(allBoardBlocks[Number(validStart) + i * width]);
-      }
-    }
-
-    let valid;
-
-    if(isHorizontal){
-        shipBlocks.every((_shipBlock, index) => 
-            valid = shipBlocks[0].id % width !== width - (shipBlocks.length - (index + 1)))
-    } else {
-        shipBlocks.every((_shipBlock, index) => 
-          valid = shipBlocks[0].id < 90 + (width * index + 1)
-        )
-    }
-
-    const notTaken = shipBlocks.every(shipBlock => !shipBlock.classList.contains('taken'));
+  
 
     if (valid && notTaken) {
         shipBlocks.forEach(shipBlock => {
