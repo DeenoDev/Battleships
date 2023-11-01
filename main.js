@@ -112,7 +112,7 @@ function addShipPiece(user, ship, startId){
             shipBlock.classList.add('taken');
         })
     } else {
-        if (user === 'computer') addShipPiece(ship);
+        if (user === 'computer') addShipPiece(user, ship, startId);
         if (user ==='player') notDropped = true;
     }
 }
@@ -138,6 +138,8 @@ function dragStart(e){
 
 function dragOver(e){
     e.preventDefault();
+    const ship = ships[draggedShip.id];
+    highlightArea(e.target.id, ship);
 }
 
 function dropShip(e){
@@ -152,7 +154,7 @@ function dropShip(e){
 //Add Highlight
 
 function highlightArea(startIndex, ship){
-    const allBoardBlocks = document.querySelectorAll('player div');
+    const allBoardBlocks = document.querySelectorAll('#player div');
     let isHorizontal = angle === 0;
 
    const {shipBlocks, valid, notTaken} = getValidity(allBoardBlocks, isHorizontal, startIndex, ship);
