@@ -60,7 +60,7 @@ let notDropped;
 
 //Checking Validity
 
-function handleValidity(allBoardBlocks, isHorizontal, startIndex, ship){
+function getValidity(allBoardBlocks, isHorizontal, startIndex, ship){
     let validStart = isHorizontal ? startIndex <= width * width - ship.length ? startIndex : 
     width * width - ship.length :
     //handle verticle
@@ -104,8 +104,8 @@ function addShipPiece(user, ship, startId){
 
    let startIndex = startId ? startId : randomStartIndex;
 
-   handleValidity(allBoardBlocks, isHorizontal, startIndex, ship);
-   
+   const {shipBlocks, valid, notTaken} = getValidity(allBoardBlocks, isHorizontal, startIndex, ship);
+
     if (valid && notTaken) {
         shipBlocks.forEach(shipBlock => {
             shipBlock.classList.add(ship.name);
@@ -153,7 +153,16 @@ function dropShip(e){
 
 function highlightArea(startIndex, ship){
     const allBoardBlocks = document.querySelectorAll('player div');
-    let isHorizontal = angle === 0
+    let isHorizontal = angle === 0;
+
+   const {shipBlocks, valid, notTaken} = getValidity(allBoardBlocks, isHorizontal, startIndex, ship);
+
+   if (valid && notTaken){
+    shipBlocks.forEach(shipBlock =>{
+        shipBlock.classList.add('hover');
+        setTimeout(() => shipBlock.classList.remove('hover'), 500);
+    })
+   }
 }
 
 
