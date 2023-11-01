@@ -58,6 +58,8 @@ const carrier = new Ship('carrier', 5);
 const ships = [destroyer, submarine, cruiser, battleship, carrier];
 let notDropped;
 
+//Adding Ship Pieces to Board
+
 function addShipPiece(user, ship, startId){
    const allBoardBlocks = document.querySelectorAll(`#${user} div`);
    let randomBoolean = Math.random() < 0.5;
@@ -136,6 +138,13 @@ function dropShip(e){
     if(!notDropped){
         draggedShip.remove();
     }
+}
+
+//Add Highlight
+
+function highlightArea(startIndex, ship){
+    const allBoardBlocks = document.querySelectorAll('player div');
+    let isHorizontal = angle === 0
 }
 
 
