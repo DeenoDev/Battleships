@@ -184,6 +184,12 @@ function startGame(){
 
     }
 }
+
+function handleClick(e){
+    if(!gameOver){
+        if(e.target.classList.contains('taken'));
+    }
+}
 startButton.addEventListener('click', startGame);
 
 
