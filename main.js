@@ -1,6 +1,7 @@
 const gamesBoardContainer = document.querySelector('#gamesboard-container');
 const optionContainer = document.querySelector('.option-container');
 const flipButton = document.querySelector('#flip-button');
+const startButton = document.querySelector('#start-button');
 
 //Option Choosing
 let angle = 0;
@@ -169,6 +170,13 @@ function highlightArea(startIndex, ship){
 
 let gameOver = false;
 let playerTurn;
+
+//Start Game
+
+function startGame(){
+    
+}
+startButton.addEventListener('click', startGame);
 
 
 
