@@ -2,6 +2,8 @@ const gamesBoardContainer = document.querySelector('#gamesboard-container');
 const optionContainer = document.querySelector('.option-container');
 const flipButton = document.querySelector('#flip-button');
 const startButton = document.querySelector('#start-button');
+const infoDisplay = document.querySelector('#info');
+const turnDisplay = document.querySelector('#turn-display');
 
 //Option Choosing
 let angle = 0;
@@ -174,7 +176,13 @@ let playerTurn;
 //Start Game
 
 function startGame(){
-    
+    if(optionContainer.children.length !=0){
+        infoDisplay.textContent = 'Please place all of your pieces first!';
+    } else {
+        const allBoardBlocks = document.querySelectorAll('#computer div');
+        allBoardBlocks.forEach(block => block.addEventListener('click', handleClick));
+
+    }
 }
 startButton.addEventListener('click', startGame);
 
