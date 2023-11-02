@@ -167,5 +167,8 @@ function highlightArea(startIndex, ship){
    }
 }
 
+let gameOver = false;
+let playerTurn;
+
 
 
