@@ -189,8 +189,9 @@ function handleClick(e){
     if(!gameOver){
         if(e.target.classList.contains('taken')){
             e.target.classList.add('boom');
-            infoDisplay.textContent = "You hit the computers ship!"
-        };
+            infoDisplay.textContent = "You hit the computers ship!";
+            let classes = Array.from(e.target.classList);
+        }
     }
 }
 startButton.addEventListener('click', startGame);
