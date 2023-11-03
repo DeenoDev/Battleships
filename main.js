@@ -185,6 +185,9 @@ function startGame(){
     }
 }
 
+let playerHits = [];
+let computerHits = [];
+
 function handleClick(e){
     if(!gameOver){
         if(e.target.classList.contains('taken')){
