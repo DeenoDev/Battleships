@@ -191,7 +191,8 @@ function handleClick(e){
             e.target.classList.add('boom');
             infoDisplay.textContent = "You hit the computers ship!";
             let classes = Array.from(e.target.classList);
-            classes.filter(className => className !== 'block');
+            classes = classes.filter(className => className !== 'block');
+            classes = classes.filter(className => className !== 'boom');
         }
     }
 }
