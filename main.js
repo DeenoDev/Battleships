@@ -197,6 +197,12 @@ function handleClick(e){
             classes = classes.filter(className => className !== 'block');
             classes = classes.filter(className => className !== 'boom');
             classes = classes.filter(className => className !== 'taken');
+            playerHits.push(...classes);
+            console.log(playerHits);
+        }
+        if (!e.target.classList.contains('taken')){
+            infoDisplay.textContent = "Nothing hit this time!";
+            e.target.classList.add('empty');
         }
     }
 }
