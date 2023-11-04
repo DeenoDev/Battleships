@@ -225,6 +225,16 @@ function computerGo(){
             if (allBoardBlocks[randomGo].classList.contains('taken') && 
             allBoardBlocks[randomGo].classList.contains('boom')){
                 computerGo();
+                return;
+            } else if(
+                allBoardBlocks[randomGo].classList.contains('taken') && 
+                !allBoardBlocks[randomGo].classList.contains('boom'))
+            {
+                allBoardBlocks[randomGo].classList.add('boom');
+                infoDisplay.textContent = "The computer hit your ship!" 
+
+            }
+                
             }
         })
     }
