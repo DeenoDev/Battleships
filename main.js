@@ -204,6 +204,10 @@ function handleClick(e){
             infoDisplay.textContent = "Nothing hit this time!";
             e.target.classList.add('empty');
         }
+        playerTurn = false;
+        const allBoardBlocks = document.querySelectorAll('#computer div');
+        allBoardBlocks.forEach(block => block.replaceWith(block.cloneNode(true)));
+
     }
 }
 startButton.addEventListener('click', startGame);
