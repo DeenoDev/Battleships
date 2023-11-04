@@ -184,6 +184,7 @@ function startGame(){
 
     }
 }
+startButton.addEventListener('click', startGame);
 
 let playerHits = [];
 let computerHits = [];
@@ -207,10 +208,19 @@ function handleClick(e){
         playerTurn = false;
         const allBoardBlocks = document.querySelectorAll('#computer div');
         allBoardBlocks.forEach(block => block.replaceWith(block.cloneNode(true)));
+        setTimeout(computerGo, 3000);
 
     }
 }
-startButton.addEventListener('click', startGame);
+
+//Define Computer Go
+function computerGo(){
+    if(!gameOver){
+        turnDisplay.textContent = 'Computers Go!';
+        infoDisplay.textContent = 'The Computer is thinking...';
+    }
+}
+
 
 
 
