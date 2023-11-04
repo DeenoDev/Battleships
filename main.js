@@ -218,6 +218,15 @@ function computerGo(){
     if(!gameOver){
         turnDisplay.textContent = 'Computers Go!';
         infoDisplay.textContent = 'The Computer is thinking...';
+
+        setTimeout(() =>{
+            let randomGo = Math.floor(Math.random() * width * width);
+            const allBoardBlocks = document.querySelectorAll('#player div');
+            if (allBoardBlocks[randomGo].classList.contains('taken') && 
+            allBoardBlocks[randomGo].classList.contains('boom')){
+                computerGo();
+            }
+        })
     }
 }
 
