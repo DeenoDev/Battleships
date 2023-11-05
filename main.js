@@ -188,6 +188,8 @@ startButton.addEventListener('click', startGame);
 
 let playerHits = [];
 let computerHits = [];
+const playerSunkShips = [];
+const computerSunkShips = [];
 
 function handleClick(e){
     if(!gameOver){
@@ -200,6 +202,7 @@ function handleClick(e){
             classes = classes.filter(className => className !== 'taken');
             playerHits.push(...classes);
             console.log(playerHits);
+            checkScore('player', playerHits, playerSunkShips);
         }
         if (!e.target.classList.contains('taken')){
             infoDisplay.textContent = "Nothing hit this time!";
@@ -257,5 +260,5 @@ function computerGo(){
 }
 
 function checkScore(){
-    
+
 }
