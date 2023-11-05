@@ -262,4 +262,15 @@ function computerGo(){
 
 function checkScore(user, userHits, userSunkShips){
 
+    function checkShip(shipName, shipLength){
+        if(userHits.filter(storedShipName => storedShipName === shipName).length === shipLength){
+            infoDisplay.textContent = `You sunk the ${user}'s ${shipName}`;
+        }
+
+}
+
+checkShip('destroyer', 2);
+
+
+
 }
