@@ -176,13 +176,20 @@ let playerTurn;
 //Start Game
 
 function startGame(){
-    if(optionContainer.children.length !=0){
-        infoDisplay.textContent = 'Please place all of your pieces first!';
-    } else {
-        const allBoardBlocks = document.querySelectorAll('#computer div');
-        allBoardBlocks.forEach(block => block.addEventListener('click', handleClick));
+    if(playerTurn === undefined){
+        if(optionContainer.children.length != 0){
+            infoDisplay.textContent = 'Please place all of your pieces first!';
+        } else {
+            const allBoardBlocks = document.querySelectorAll('#computer div');
+            allBoardBlocks.forEach(block => block.addEventListener('click', handleClick));
+    
+        }
+        playerTurn = true;
+        turnDisplay.textContent = "Your Go!";
+        infoDisplay.textContent = "The game has started!";
 
     }
+    
 }
 startButton.addEventListener('click', startGame);
 
