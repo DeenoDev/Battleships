@@ -182,15 +182,12 @@ function startGame(){
         } else {
             const allBoardBlocks = document.querySelectorAll('#computer div');
             allBoardBlocks.forEach(block => block.addEventListener('click', handleClick));
-    
+            playerTurn = true;
+            turnDisplay.textContent = "Your Go!";
+            infoDisplay.textContent = "The game has started!";
+            }
         }
-        playerTurn = true;
-        turnDisplay.textContent = "Your Go!";
-        infoDisplay.textContent = "The game has started!";
-
-    }
-    
-}
+  }
 startButton.addEventListener('click', startGame);
 
 let playerHits = [];
