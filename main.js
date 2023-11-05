@@ -235,7 +235,7 @@ function computerGo(){
             {
                 allBoardBlocks[randomGo].classList.add('boom');
                 infoDisplay.textContent = "The computer hit your ship!";
-                let classes = Array.from(e.target.classList);
+                let classes = Array.from(allBoardBlocks[randomGo].classList);
                 classes = classes.filter(className => className !== 'block');
                 classes = classes.filter(className => className !== 'boom');
                 classes = classes.filter(className => className !== 'taken');
@@ -265,6 +265,15 @@ function checkScore(user, userHits, userSunkShips){
     function checkShip(shipName, shipLength){
         if(userHits.filter(storedShipName => storedShipName === shipName).length === shipLength){
             infoDisplay.textContent = `You sunk the ${user}'s ${shipName}`;
+            if(user === 'player') {
+                playerHits = userHits.filter(storedShipName => storedShipName !== shipName);
+            }
+            if(user === 'computer') {
+                computerHits = userHits.filter(storedShipName => storedShipName !== shipName);
+            }
+
+            userSunkShips.push(shipName);
+
         }
 
 }
@@ -274,6 +283,9 @@ checkShip('submarine', 3);
 checkShip('cruiser', 3);
 checkShip('battleship', 4);
 checkShip('carrier', 5);
+
+console.log('playerHits', playerHits);
+console.log('playerSunkShips', playerSunkShips);
 
 
 
