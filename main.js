@@ -273,8 +273,9 @@ function checkScore(user, userHits, userSunkShips){
             }
 
             userSunkShips.push(shipName);
-
         }
+
+
 
 }
 
@@ -286,6 +287,15 @@ checkShip('carrier', 5);
 
 console.log('playerHits', playerHits);
 console.log('playerSunkShips', playerSunkShips);
+
+if(playerSunkShips.length === 5){
+    infoDisplay.textContent = 'You sunk all the computers ships. YOU WON!';
+    gameOver = true;
+}
+if(computerSunkShips.length === 5){
+    infoDisplay.textContent = 'The computer has sunk all of your ships. YOU LOST!';
+    gameOver = true;
+}
 
 
 
