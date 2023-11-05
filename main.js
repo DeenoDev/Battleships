@@ -243,9 +243,15 @@ function computerGo(){
             }
                 
             }, 3000)
-    }
+
+            setTimeout(() => {
+                playerTurn = true;
+                turnDisplay.textContent = "Your Go!";
+                infoDisplay.textContent = "Please take your go.";
+                const allBoardBlocks = document.querySelectorAll('#computer div');
+                allBoardBlocks.forEach(block => block.addEventListener('click', handleClick));
+                
+         
+         },6000);
 }
-
-
-
-
+}
