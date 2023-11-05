@@ -253,5 +253,9 @@ function computerGo(){
                 
          
          },6000);
+     }
 }
+
+function checkScore(){
+    
 }
