@@ -270,6 +270,10 @@ function checkScore(user, userHits, userSunkShips){
 }
 
 checkShip('destroyer', 2);
+checkShip('submarine', 3);
+checkShip('cruiser', 3);
+checkShip('battleship', 4);
+checkShip('carrier', 5);
 
 
 
